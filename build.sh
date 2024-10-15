@@ -1,13 +1,27 @@
 #!/bin/bash
 
-# Install PostgreSQL development package
-apt-get update && apt-get install -y postgresql-server-dev-all
+# Exit immediately if a command exits with a non-zero status.
+set -e
 
-# Install Python dependencies
-pip install -r requirements.txt
+# Ensure pip is installed
+echo "Ensuring pip is installed..."
+python3.9 -m ensurepip --upgrade
 
-# Run Django migrations
-python manage.py migrate
+# Upgrade pip
+echo "Upgrading pip..."
+python3.9 -m pip install --upgrade pip
+
+# Install dependencies
+echo "Installing dependencies..."
+python3.9 -m pip install -r requirements.txt
+
+# Apply database migrations
+echo "Making Migrations..."
+python3.9 manage.py makemigrations --noinput
+
+echo "Applying Migrations..."
+python3.9 manage.py migrate --noinput
 
 # Collect static files
-python manage.py collectstatic --noinput
+echo "Collecting Static Files..."
+python3.9 manage.py collectstatic --noinput --clear
