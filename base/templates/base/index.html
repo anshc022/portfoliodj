@@ -10,34 +10,308 @@
 	  window.dataLayer = window.dataLayer || [];
 	  function gtag(){dataLayer.push(arguments);}
 	  gtag('js', new Date());
-
 	  gtag('config', 'UA-47692315-56');
 	</script>
-
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
 
 	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
-
 	<link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
 	<link id="theme-style" rel="stylesheet" type="text/css" href="">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+	<style>
+		/* Typing effect */
+		.typing-effect {
+			overflow: hidden;
+			border-right: .15em solid orange;
+			white-space: nowrap;
+			margin: 0 auto;
+			letter-spacing: .15em;
+			animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+		}
+
+		@keyframes typing {
+			from { width: 0 }
+			to { width: 100% }
+		}
+
+		@keyframes blink-caret {
+			from, to { border-color: transparent }
+			50% { border-color: orange; }
+		}
+
+		/* Sliding animations */
+		.slide-in {
+			opacity: 0;
+			transform: translateY(20px);
+			animation: slide-in 1s forwards;
+		}
+
+		@keyframes slide-in {
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		/* Floating animations */
+		.floating {
+			animation: float 3s ease-in-out infinite;
+		}
+
+		@keyframes float {
+			0% {
+				transform: translateY(0);
+			}
+			50% {
+				transform: translateY(-10px);
+			}
+			100% {
+				transform: translateY(0);
+			}
+		}
+
+/* Sidebar */
+.sidebar {
+	position: fixed;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+	background-color: #f8f9fa;
+	padding: 15px;
+	border-radius: 5px 0 0 5px;
+	box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar a {
+	display: block;
+	margin: 10px 0;
+	font-size: 1.2em;
+	color: #333;
+	transition: color 0.3s;
+}
+
+.sidebar a:hover {
+	color: #007bff;
+}
+
+.sidebar i {
+	margin-right: 5px;
+}
+
+		/* Visual improvements */
+		.social-links a {
+			display: inline-block;
+			margin: 10px;
+			font-size: 1.2em;
+			color: #333;
+			transition: color 0.3s;
+		}
+
+		.social-links a:hover {
+			color: #007bff;
+		}
+
+		.social-links i {
+			margin-right: 5px;
+		}
+
+		.tech-icons {
+			display: flex;
+			justify-content: center;
+			margin-top: 20px;
+		}
+
+		.tech-icons i {
+			font-size: 2em;
+			margin: 0 15px;
+			color: #333;
+			transition: color 0.3s;
+		}
+
+		.tech-icons i:hover {
+			color: #007bff;
+		}
+
+		/* Skills section */
+		.skills-section {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 20px;
+		}
+
+		.skills-section ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		.skills-section ul li {
+			margin: 10px 0;
+			display: flex;
+			align-items: center;
+		}
+
+		.skills-section ul li i {
+			margin-right: 10px;
+			font-size: 1.5em;
+			color: #333;
+			transition: color 0.3s;
+		}
+
+		.skills-section ul li:hover i {
+			color: #007bff;
+		}
+/* Terminal Styling */
+.terminal {
+	background-color: #1e1e1e;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.terminal-header {
+	background-color: #4d4d4d;
+	padding: 5px 10px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.terminal-button {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	margin-right: 5px;
+	display: inline-block;
+}
+
+.terminal-button.red { background-color: #ff5f56; }
+.terminal-button.yellow { background-color: #ffbd2e; }
+.terminal-button.green { background-color: #27c93f; }
+
+.terminal-body {
+	padding: 10px;
+	color: #d4d4d4;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.terminal-body a {
+	color: #61afef;
+	text-decoration: none;
+}
+
+.terminal-body a:hover {
+	text-decoration: underline;
+}
+
+.prompt {
+	color: #61afef;
+	margin-right: 5px;
+}
+
+/* Skills Section */
+.skills-section {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.skills-section ul {
+	list-style: none;
+	padding: 0;
+}
+
+.skills-section ul li {
+	margin: 10px 0;
+	display: flex;
+	align-items: center;
+}
+
+.skills-section ul li i {
+	margin-right: 10px;
+	font-size: 1.5em;
+	color: #d4d4d4;
+	transition: color 0.3s;
+}
+
+.skills-section ul li:hover i {
+	color: #61afef;
+}
+
+/* IDE Styling */
+.ide {
+	background-color: #1e1e1e;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+}
+
+.ide-header {
+	background-color: #333;
+	padding: 5px 10px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.ide-button {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	margin-right: 5px;
+	display: inline-block;
+}
+
+.ide-button.red { background-color: #ff5f56; }
+.ide-button.yellow { background-color: #ffbd2e; }
+.ide-button.green { background-color: #27c93f; }
+
+.ide-body {
+	padding: 10px;
+	color: #d4d4d4;
+	font-family: 'Courier New', Courier, monospace;
+}
+
+.ide-body a {
+	color: #61afef;
+	text-decoration: none;
+}
+
+.ide-body a:hover {
+	text-decoration: underline;
+}	
+	</style>
 </head>
 <body>
+
+	<div class="sidebar">
+		<a target="_blank" href="https://www.linkedin.com/in/pranshuchourasia">
+			<i class="fab fa-linkedin"></i> 
+		</a>
+		<a target="_blank" href="https://twitter.com/pranshuchourasia">
+			<i class="fab fa-twitter"></i> 
+		</a>
+		<a target="_blank" href="https://www.instagram.com/pranshuchourasia">
+			<i class="fab fa-instagram"></i> 
+		</a>
+	</div>
 
 	<section class="s1">
 		<div class="main-container">
 			<div class="greeting-wrapper">
-				<h1>Hi, I'm Pranshu Chourasia</h1>
+				<h1 class="typing-effect">Hi, I'm Pranshu Chourasia</h1>
 			</div>
 
-
-			<div class="intro-wrapper">
+			<div class="intro-wrapper slide-in">
 				{% include 'base/navbar.html' %}
 
 				<div class="left-column">
-					<img id="profile_pic" src="{% static 'images/DSC05447-01.jpg' %}">
+					<img id="profile_pic" src="{% static 'images/DSC05447-01.jpg' %}" class="floating">
 					<h5 style="text-align: center;line-height: 0;">Personalize Theme</h5>
 
 					<div id="theme-options-wrapper">
@@ -51,7 +325,6 @@
 				</div>
 
 				<div class="right-column">
-
 					<div id="preview-shadow">
 						<div id="preview">
 							<div id="corner-tl" class="corner"></div>
@@ -69,62 +342,56 @@
 
 	<section class="s2">
 		<div class="main-container">
-
-			<div class="about-wrapper">
+			<div class="about-wrapper slide-in">
 				<div class="about-me">
 					<h4>More about me</h4>
-
-					<p>I build new projects just to tickle my brain and love teaching others how they're made.</p>
-
-					<p>While I keep busy teaching courses, I still take interviews in search of a great team & projects that interest me.</p>
-
-
-					<hr>
-
-					<h4>TOP EXPERTISE</h4>
-
-					<p>Fullstack developer with primary focus on Django + React: <a target="_blank" href="{% static 'parnshu_Resume__Anonymous_ (1).pdf' %}">Download Resume</a></p>
-
-					<div id="skills">
-						<ul>
-							<li>Python</li>
-							<li>Django</li>
-							<li>JavaScript</li>
-							<li>React</li>
-							<li>Postgres</li>
-						</ul>
-
-						<ul>
-							<li>Google Maps API</li>
-							<li>JS Charts</li>
-							<li>AWS (RDS/S3)</li>
-							<li>Heroku</li>
-							<li>HTML/CSS</li>
-						</ul>
-
+					<div class="terminal">
+						<div class="terminal-header">
+							<span class="terminal-button red"></span>
+							<span class="terminal-button yellow"></span>
+							<span class="terminal-button green"></span>
+						</div>
+						<div class="terminal-body">
+							<p><span class="prompt">$</span> I build new projects just to tickle my brain and love teaching others how they're made.</p>
+							<p><span class="prompt">$</span> While I keep busy teaching courses, I still take interviews in search of a great team & projects that interest me.</p>
+						</div>
 					</div>
-
-				</div>
-
-				
-				<div class="social-links">
-					<img id="social_img" src="{% static 'images/follow.jpg' %}">
-					<h3>Find me on Twitter & Youtube</h3>
-
-					<a target="_blank" href="https://www.youtube.com/c/dennisivy">YouTube: @DennisIvy</a>
-					<br>
-					<a target="_blank" href="https://twitter.com/dennisivy11">Twitter: @DennisIvy11</a>
+					<hr>
+					<h4>TOP EXPERTISE</h4>
+					<div class="terminal">
+						<div class="terminal-header">
+							<span class="terminal-button red"></span>
+							<span class="terminal-button yellow"></span>
+							<span class="terminal-button green"></span>
+						</div>
+						<div class="terminal-body">
+							<p><span class="prompt">$</span> Fullstack developer with primary focus on Django + React: <a target="_blank" href="{% static 'parnshu_Resume__Anonymous_ (1).pdf' %}">Download Resume</a></p>
+							<div class="skills-section">
+								<ul>
+									<li><i class="fab fa-python floating"></i> Python</li>
+									<li><i class="fab fa-html5 floating"></i> Django</li>
+									<li><i class="fab fa-js-square floating"></i> JavaScript</li>
+									<li><i class="fab fa-react floating"></i> React</li>
+									<li><i class="fas fa-database floating"></i> Postgres</li>
+								</ul>
+								<ul>
+									<li><i class="fas fa-map-marked-alt floating"></i> Google Maps API</li>
+									<li><i class="fas fa-chart-bar floating"></i> JS Charts</li>
+									<li><i class="fab fa-aws floating"></i> AWS (RDS/S3)</li>
+									<li><i class="fab fa-node-js floating"></i> Heroku</li>
+									<li><i class="fab fa-html5 floating"></i> HTML/CSS</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-
 		</div>
 	</section>
-
 	<section class="s1">
 		<div class="main-container">
 			<h3 style="text-align: center;">Some of my past projects</h3>
-
-			<div class="post-wrapper">
+			<div class="post-wrapper slide-in">
 				{% for post in posts %}
 				<div>
 					<div class="post">
@@ -138,7 +405,6 @@
 				</div>
 				{% endfor %}
 			</div>
-
 			<p align="center">
 				<a href="{% url 'posts' %}">View More</a>
 			</p>
@@ -149,23 +415,17 @@
 		<div class="main-container">
 			<a href=""></a>
 			<h3 style="text-align: center;">Get In Touch</h3>
-
 			<form id="contact-form" method="POST" action="{% url 'send_email' %}">
 				{% csrf_token %}
 				<a name="contact"></a>
-
 				<label>Name</label>
 				<input required class="input-field" type="text" name="name">
-
 				<label>Subject</label>
 				<input required class="input-field" type="text" name="subject">
-
 				<label>Email</label>
 				<input required class="input-field" type="text" name="email">
-
 				<label>Message</label>
 				<textarea required class="input-field" name="message"></textarea>
-
 				<input id="submit-btn" type="submit" value="Send">
 			</form>
 		</div>
