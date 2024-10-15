@@ -6,5 +6,8 @@ apt-get update && apt-get install -y postgresql-server-dev-all
 # Install Python dependencies
 pip install -r requirements.txt
 
-# Run your build commands
-# Example: python manage.py collectstatic --noinput
+# Run Django migrations
+python manage.py migrate
+
+# Collect static files
+python manage.py collectstatic --noinput

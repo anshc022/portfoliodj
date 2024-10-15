@@ -26,6 +26,14 @@
             "src": "/(.*)",
             "dest": "dennisivy/wsgi.py"
         }
-    ]
-
+    ],
+    "build": {
+        "env": {
+            "PG_CONFIG": "/usr/bin/pg_config"
+        },
+        "commands": [
+            "apt-get update && apt-get install -y postgresql-server-dev-all",
+            "pip install -r requirements.txt"
+        ]
+    }
 }
